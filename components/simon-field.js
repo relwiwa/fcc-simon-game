@@ -6,7 +6,7 @@ const SimonField = (props) => {
   return (
     <div
       id={position}
-      className="simon-field col col-xs-6"
+      className="simon-field column small-6"
     >
       <div></div>
     </div>
