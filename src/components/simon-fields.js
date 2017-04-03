@@ -4,7 +4,7 @@ import SimonField from './simon-field';
 
 const SimonFields = (props) => {
   return (
-    <div className="simon-fields col-xs-10 col-xs-offset-1 text-center">
+    <div className="simon-fields column small-10 small-offset-1 text-center">
       <div className="row">
         <SimonField
           position="simon-top-left"
