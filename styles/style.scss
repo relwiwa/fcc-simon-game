@@ -1,7 +1,12 @@
+@import 'foundation-custom';
+@import '../node_modules/foundation-sites/scss/foundation.scss';
+@include foundation-everything;
+
+
 /* Colors */
 
-$borderColor:							lightgray;
-$centerColor:							darkgray;
+$borderColor:							#333;
+$centerColor:							white;
 $topLeftColor:						seagreen;
 $topLeftActiveColor:			aquamarine;
 $topRightColor:						firebrick;
@@ -23,17 +28,29 @@ $bottomRightActiveColor:	paleturquoise;
 	
 	#simon-#{$vertical}-#{$horizontal} {
 		@if $vertical == "top" {
-			padding-bottom: 5px;
+			padding-bottom: 2.5px;
+			@include breakpoint(medium) {
+				padding-bottom: 5px;
+			}
 		}
 		@else {
-			padding-top: 5px;
+			padding-top: 2.5px;
+			@include breakpoint(medium) {
+				padding-top: 5px;
+			}
 		}
 
 		@if $horizontal == "left" {
-			padding-right: 5px;
+			padding-right: 2.5px;
+			@include breakpoint(medium) {
+				padding-right: 5px;
+			}
 		}
 		@else {
-			padding-left: 5px;
+			padding-left: 2.5px;
+			@include breakpoint(medium) {
+				padding-left: 5px;
+			}
 		}
 
 	}
@@ -70,6 +87,9 @@ $bottomRightActiveColor:	paleturquoise;
 	background:$borderColor;
 	border-radius:100%;
 	z-index:0;
+	@include breakpoint(medium) {
+		border:20px solid $borderColor;		
+	}
 }
 
 .simon-field {
@@ -83,30 +103,140 @@ $bottomRightActiveColor:	paleturquoise;
 	padding-bottom:100%;
 }
 
+// SIMON CONTROLS CHAOS BELOW :-)
+
 .simon-controls {
 	position:absolute;
-	top:25%;
-	left:20.6%;
 	z-index:5;
 	background:$centerColor;
 	border-radius:100%;
+	top:15%;
+	left:20.6%;
+	@include breakpoint(medium) {
+		top:25%;
+		left:20.6%;
+	}
 }
 
-#simon-options {
-	border-radius:100%;
-	padding:0;
-	border:10px solid $borderColor;
+.simon-controls-text {
+	font-size:0.5rem;
+	font-weight:bold;
+	text-transform:uppercase;
+	margin-top:0.3rem;
+	@include breakpoint(medium) {
+		font-size:0.6rem;
+	}
 }
 
-#simon-options div {
+.simon-controls-wrapper-1 {
+  border-radius:100%;
+  padding:0;
+	border:5px solid $borderColor;
+	@include breakpoint(medium) {
+	  border:10px solid $borderColor;
+	}
+}
+
+.simon-controls-wrapper-2 {
+	position:relative;
 	padding-bottom:100%;
 	background:$centerColor;
 	border-radius:100%;
-	position:relative;
+	text-align:center;
+
 }
 
-#simon-options div h3 {
+.simon-controls-top, .simon-controls-middle, .simon-controls-bottom {
 	position:absolute;
 	text-align:center;
 	width:100%;
+}
+
+.simon-controls-top {
+	margin-top:10%;
+	h3 {
+		font-size:1.9rem;
+		font-weight:bold;
+		@include breakpoint(medium) {
+			font-size:2.4rem;
+		}
+	}
+}
+
+.simon-controls-middle {
+  position:absolute;
+  margin-top:30%;
+  width:100%;
+	line-height:0;
+	@include breakpoint(medium) {
+		margin-top:35%;
+	}
+	button {
+		position:relative;
+		border-radius:100%;
+		width:1.5rem;
+		padding-bottom:1.5rem;
+		border:4px solid $borderColor;
+		box-sizing:content-box;
+		@include breakpoint(medium) {
+			width:2rem;
+			padding-bottom:2rem;
+		}
+	}
+	button.turn-counter-button {
+		width:2.5rem;
+		border-radius:0;
+		border:none;
+		span {
+			position:absolute;
+			border-radius:0.2rem;
+			left:0;
+			top:-2px;
+			padding:0.2rem 0;
+			width:100%;
+			height:100%;
+			background:black;
+			color:white;
+			font-size:1.5rem;
+			@include breakpoint(medium) {
+				font-size:2rem;
+				padding:0.2rem;
+			}
+		}
+	}
+}
+
+.simon-controls-middle-1 {
+	height:10%;
+}
+
+.simon-controls-middle-2 {
+	margin:0.2rem 0 0.4rem 0;
+}
+
+
+.re-start-button {
+	background:red;
+}
+
+.strict-mode-indicator {
+	height:1rem;
+
+	span {
+		display:inline-block;
+		width:1rem;
+		height:1rem;
+		border:3px solid $borderColor;
+		border-radius:100%;
+		background:red;
+	}
+}
+
+.strict-mode-toggle {
+	background:yellow;
+}
+
+.simon-controls-bottom {
+  margin-top:80%;
+	height:20%;
 }
