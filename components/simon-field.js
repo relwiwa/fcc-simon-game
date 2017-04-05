@@ -1,14 +1,16 @@
 import React from 'react';
 
 const SimonField = (props) => {
-  const { position } = props;
+  const { position, currentField, currentTurn } = props;
 
   return (
     <div
       id={position}
-      className="simon-field column small-6"
+      className={'simon-field column small-6'}
     >
-      <div></div>
+      <div
+        className={currentField === position ? 'simon-field-current' : ''}>
+      </div>
     </div>
   );
 };
