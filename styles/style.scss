@@ -54,12 +54,23 @@ $bottomRightActiveColor:	paleturquoise;
 		}
 
 	}
-	
+
 	#simon-#{$vertical}-#{$horizontal} div {
 		border-#{$vertical}-#{$horizontal}-radius: 100%;
 		background: $color;
 		border-#{$vertical}: 4% solid $borderColor;
 		border-#{$horizontal}: 4% solid $borderColor;
+	}
+
+	#simon-#{$vertical}-#{$horizontal} div.simon-field-current {
+		animation-name:activate-#{$vertical}-#{$horizontal};
+		animation-duration:1s;
+		background-color:$colorActive;
+	}
+
+	@keyframes activate-#{$vertical}-#{$horizontal} {
+		0% { background-color:$color; }
+		100% { background-color:$colorActive; }
 	}
 
 }
@@ -178,12 +189,13 @@ $bottomRightActiveColor:	paleturquoise;
 		padding-bottom:1.5rem;
 		border:4px solid $borderColor;
 		box-sizing:content-box;
+		outline:none;
 		@include breakpoint(medium) {
 			width:2rem;
 			padding-bottom:2rem;
 		}
 	}
-	button.turn-counter-button {
+	button.step-counter-button {
 		width:2.5rem;
 		border-radius:0;
 		border:none;
@@ -228,6 +240,9 @@ $bottomRightActiveColor:	paleturquoise;
 		height:1rem;
 		border:3px solid $borderColor;
 		border-radius:100%;
+		background:$borderColor;
+	}
+	span.strict-mode-on {
 		background:red;
 	}
 }
