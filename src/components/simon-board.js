@@ -223,6 +223,7 @@ class SimonBoard extends Component {
         currentSprite: null,
         sequence: null,
         isTurnedOn: false,
+        strictMode: false,
       });
     }
     else {

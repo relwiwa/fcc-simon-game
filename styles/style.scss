@@ -130,6 +130,11 @@ $bottomRightActiveColor:	paleturquoise;
 	}
 }
 
+.simon-controls  > .row {
+	background:black;
+	border-radius:100%;
+}
+
 .simon-controls-text {
 	font-size:0.5rem;
 	font-weight:bold;
@@ -166,6 +171,9 @@ $bottomRightActiveColor:	paleturquoise;
 
 .simon-controls-top {
 	margin-top:10%;
+	margin-left:15%;
+	margin-right:15%;
+	width:70%;
 	h3 {
 		font-size:1.9rem;
 		font-weight:bold;
@@ -253,6 +261,9 @@ $bottomRightActiveColor:	paleturquoise;
 }
 
 .simon-controls-bottom {
-  margin-top:80%;
-	height:20%;
+  margin-top:75%;
+	height:15%;
+	width:50%;
+	margin-left:25%;
+	margin-right:25%;
 }
