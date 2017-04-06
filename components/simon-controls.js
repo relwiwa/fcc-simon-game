@@ -1,12 +1,15 @@
 import React from 'react';
 
 const SimonControls = (props) => {
-  const { currentStep, isTurnedOn, onStartOrRestart, onToggleStrictMode, onToggleTurnedOn, strictMode } = props;
+  const { currentStep, gameStatus, isTurnedOn, onStartOrRestart, onToggleStrictMode, onToggleTurnedOn, strictMode } = props;
 
   const renderCurrentStep = () => {
-    const leadingZero = currentStep < 10 ? '0' : '';
+    if (gameStatus === 'not-started') {
+      return '00';
+    }
+    const leadingZero = (currentStep + 1) < 10 ? '0' : '';
     return (
-      leadingZero + currentStep
+      leadingZero + (currentStep + 1)
     );
   };
 
