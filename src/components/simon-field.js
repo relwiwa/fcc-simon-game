@@ -1,15 +1,16 @@
 import React from 'react';
 
 const SimonField = (props) => {
-  const { position, currentField, currentTurn } = props;
+  const { field, isCurrentField, onUserClicked } = props;
 
   return (
     <div
-      id={position}
+      id={field}
       className={'simon-field column small-6'}
     >
       <div
-        className={currentField === position ? 'simon-field-current' : ''}>
+        className={isCurrentField ? 'simon-field-current' : ''}
+        onClick={onUserClicked}>
       </div>
     </div>
   );

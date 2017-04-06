@@ -70,7 +70,8 @@ $bottomRightActiveColor:	paleturquoise;
 
 	@keyframes activate-#{$vertical}-#{$horizontal} {
 		0% { background-color:$color; }
-		100% { background-color:$colorActive; }
+		50% { background-color:$colorActive; }
+		100% { background-color:$color; }
 	}
 
 }

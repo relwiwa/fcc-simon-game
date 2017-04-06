@@ -39,6 +39,10 @@ const config = {
           'image-webpack-loader'
         ],
         test: /\.(jpe?g|png|gif|svg)$/
+      },
+      {
+        test: /\.mp3$/,
+        use: 'file-loader'
       }
     ]
   },

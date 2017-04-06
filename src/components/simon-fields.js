@@ -3,14 +3,14 @@ import React from 'react';
 import SimonField from './simon-field';
 
 const SimonFields = (props) => {
-  const { currentField, currentTurn } = props;
+  const { currentField, currentTurn, gameStatus, onUserClicked } = props;
 
-  const renderField = (position) => {
+  const renderField = (field) => {
     return (
       <SimonField
-        position={position}
-        currentField={currentField}
-        currentTurn={currentTurn}
+        field={field}
+        isCurrentField={currentField === field ? true : false}
+        onUserClicked={currentTurn === 'user' && gameStatus === 'started' ? (event) => onUserClicked(event, field) : null}
       />
     );
   };
