@@ -14,7 +14,7 @@ const SimonControls = (props) => {
   };
 
   return (
-    <div className="simon-controls column small-7 medium-5 medium-offset-1 text-center">
+    <div className="simon-controls column small-7 medium-6 large-5 large-offset-1 text-center">
       <div className="row">
         <div className="simon-controls-wrapper-1 column small-12">
           <div className="simon-controls-wrapper-2">
