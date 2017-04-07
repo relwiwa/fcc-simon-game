@@ -41,7 +41,7 @@ const config = {
         test: /\.(jpe?g|png|gif|svg)$/
       },
       {
-        test: /\.(mp3|ogg)$/,
+        test: /\.(mp3|ogg|wav)$/,
         use: 'file-loader'
       }
     ]

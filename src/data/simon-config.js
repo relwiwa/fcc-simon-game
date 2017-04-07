@@ -12,15 +12,15 @@ export const simonConfig = {
       spriteDuration: 1
     },
     'simon-top-right': {
-      spriteStart: 0.8,
+      spriteStart: 1,
       spriteDuration: 1
     },
     'simon-bottom-left': {
-      spriteStart: 1.7,
+      spriteStart: 2,
       spriteDuration: 1
     },
     'simon-bottom-right': {
-      spriteStart: 2.9,
+      spriteStart: 3,
       spriteDuration: 1
     },
     'error': {
