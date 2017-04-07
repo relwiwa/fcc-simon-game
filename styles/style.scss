@@ -64,7 +64,7 @@ $bottomRightActiveColor:	paleturquoise;
 
 	#simon-#{$vertical}-#{$horizontal} div.simon-field-current {
 		animation-name:activate-#{$vertical}-#{$horizontal};
-		animation-duration:1s;
+		animation-duration:900ms;
 		background-color:$colorActive;
 	}
 

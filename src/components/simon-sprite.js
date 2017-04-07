@@ -10,7 +10,12 @@ import React, { Component } from 'react';
       - http://soundbible.com/1003-Ta-Da.html
       - http://soundbible.com/1682-Robot-Blip.html
     => the single sprite file was created so that the sounds can be played on mobile devices */
-import simonSprite from '../audio/simon-sprite.mp3';
+/*  Usage of ogg and mp3 files necessary:
+    - When setting currentTime, Chrome and Firefox interpret the position differently
+    - OGG file is included for Firefox, but unsupported in Chrome, so MP3 is also included
+    - MP3 also works in IE */
+import simonSpriteOgg from '../audio/simon-sprite.ogg';
+import simonSpriteMp3 from '../audio/simon-sprite.mp3';
 
 class SimonSprite extends Component {
   constructor(props) {
@@ -41,7 +46,7 @@ class SimonSprite extends Component {
       this.spriteTimeout = setTimeout(() => {
         this.audio.pause();
         onSpritePlaybackDone();
-      }, fieldData[currentSprite].spriteDuration * 1000);
+      }, fieldData[currentSprite].spriteDuration * 900);
     }
   };
 
@@ -50,10 +55,11 @@ class SimonSprite extends Component {
     return (
       <audio
         id="simon-sprite"
-        type="audio/mpeg"
-        src={simonSprite}
         ref={(audio) => this.audio = audio}
-      ></audio>
+      >
+        <source src={simonSpriteOgg} type="audio/ogg" />
+        <source src={simonSpriteMp3} type="audio/mpeg" />
+      </audio>
     );
   }
 };
