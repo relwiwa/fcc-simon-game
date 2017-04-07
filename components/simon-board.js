@@ -11,15 +11,15 @@ const fieldData = {
     spriteDuration: 1
   },
   'simon-top-right': {
-    spriteStart: 1,
+    spriteStart: 0.8,
     spriteDuration: 1
   },
   'simon-bottom-left': {
-    spriteStart: 2,
+    spriteStart: 1.7,
     spriteDuration: 1
   },
   'simon-bottom-right': {
-    spriteStart: 3,
+    spriteStart: 2.9,
     spriteDuration: 1
   },
   'error': {
