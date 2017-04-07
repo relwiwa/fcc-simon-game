@@ -12,10 +12,13 @@ import React, { Component } from 'react';
     => the single sprite file was created so that the sounds can be played on mobile devices */
 /*  Usage of ogg and mp3 files necessary:
     - When setting currentTime, Chrome and Firefox interpret the position differently
-    - OGG file is included for Firefox, but unsupported in Chrome, so MP3 is also included
+    - Different browsers on desktop and mobile behave differently
+    (- OGG file is included for Firefox, but unsupported in Chrome, so MP3 is also included)
+    - WAV file seems to work across most browsers :-) but has by far the biggest size :-(
     - MP3 also works in IE */
-import simonSpriteOgg from '../audio/simon-sprite.ogg';
+//import simonSpriteOgg from '../audio/simon-sprite.ogg';
 import simonSpriteMp3 from '../audio/simon-sprite.mp3';
+import simonSpriteWav from '../audio/simon-sprite.wav';
 
 class SimonSprite extends Component {
   constructor(props) {
@@ -59,7 +62,7 @@ class SimonSprite extends Component {
         id="simon-sprite"
         ref={(audio) => this.audio = audio}
       >
-        <source src={simonSpriteOgg} type="audio/ogg" />
+        <source src={simonSpriteWav} type="audio/wav" />
         <source src={simonSpriteMp3} type="audio/mpeg" />
       </audio>
     );
