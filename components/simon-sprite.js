@@ -36,17 +36,19 @@ class SimonSprite extends Component {
   }
 
   setupSimonSprite(newProps) {
-    const { currentSprite, fieldData, onSpritePlaybackDone } = newProps;
+    const { currentSprite, onSpritePlaybackDone, spriteData } = newProps;
+
     if (this.clearSpriteTimeout) {
       this.clearSpriteTimeout();
     }
     if (currentSprite !== null) {
-      this.audio.currentTime = fieldData[currentSprite].spriteStart;
+      const { spriteDuration, spriteStart } = spriteData[currentSprite];
+      this.audio.currentTime = spriteStart;
       this.audio.play();
       this.spriteTimeout = setTimeout(() => {
         this.audio.pause();
         onSpritePlaybackDone();
-      }, fieldData[currentSprite].spriteDuration * 900);
+      }, spriteDuration * 900);
     }
   };
 

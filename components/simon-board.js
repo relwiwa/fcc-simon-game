@@ -1,36 +1,10 @@
 import React, { Component } from 'react';
 
+
+import { simonConfig } from '../data/simon-config';
 import SimonControls from './simon-controls';
 import SimonFields from './simon-fields';
 import SimonSprite from './simon-sprite';
-
-const fields = ['simon-top-left', 'simon-top-right', 'simon-bottom-left', 'simon-bottom-right'];
-const fieldData = {
-  'simon-top-left': {
-    spriteStart: 0,
-    spriteDuration: 1
-  },
-  'simon-top-right': {
-    spriteStart: 0.8,
-    spriteDuration: 1
-  },
-  'simon-bottom-left': {
-    spriteStart: 1.7,
-    spriteDuration: 1
-  },
-  'simon-bottom-right': {
-    spriteStart: 2.9,
-    spriteDuration: 1
-  },
-  'error': {
-    spriteStart: 4,
-    spriteDuration: 1
-  },
-  'success': {
-    spriteStart: 5,
-    spriteDuration: 2
-  }
-};
 
 class SimonBoard extends Component {
   constructor(props) {
@@ -50,7 +24,7 @@ class SimonBoard extends Component {
   }
 
   continueAfterPlaybackAi() {
-    const { currentStep, currentStepAi } = this.state;
+    const { currentStep, currentStepAi, sequence } = this.state;
     /*  ai has finished playing sequence til current step
         => switch back to user */
     if (currentStepAi === currentStep) {
@@ -66,9 +40,9 @@ class SimonBoard extends Component {
       /*  ai has not yet finished playing sequence til current step
           => continue ai sequence */
       this.setState({
-        currentStepAi: this.state.currentStepAi + 1,
-        currentField: this.state.sequence[this.state.currentStepAi + 1],
-        currentSprite: this.state.sequence[this.state.currentStepAi + 1],
+        currentStepAi: currentStepAi + 1,
+        currentField: sequence[currentStepAi + 1],
+        currentSprite: sequence[currentStepAi + 1],
       });
     }   
   }
@@ -135,7 +109,8 @@ class SimonBoard extends Component {
 
   createSequence() {
     let sequence = [];
-    for (let i = 0; i < 20; i++) {
+    const { fields, numberOfFields, sequenceLength } = simonConfig;
+    for (let i = 0; i < sequenceLength; i++) {
       sequence.push(fields[Math.floor(Math.random() * fields.length)]);
     }
     return sequence;
@@ -202,10 +177,19 @@ class SimonBoard extends Component {
     });
   }
 
-  // strict mode can be turned on and off at any time
+  // when toggling strict mode, restart game
   handleToggleStrictMode() {
+    const sequence = this.createSequence();
     this.setState({
-      strictMode: !this.state.strictMode
+      sequence: sequence,
+      currentStep: 0,
+      currentTurn: 'ai',
+      gameStatus: 'started',
+      currentStepAi: 0,
+      currentStepUser: 0,
+      currentField: sequence[0],
+      currentSprite: sequence[0],
+      strictMode: !this.state.strictMode,
     });
   }
 
@@ -245,7 +229,7 @@ class SimonBoard extends Component {
           onUserClicked={(event, field) => this.handleUserClicked(event, field)}
         />
         {isTurnedOn === true && <SimonSprite
-          fieldData={fieldData}
+          spriteData={simonConfig.spriteData}
           sequence={sequence}
           currentSprite={currentSprite}
           onSpritePlaybackDone={() => this.handleSpritePlaybackDone()}
