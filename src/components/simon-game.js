@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SimonBoard from './simon-board';
+import '../styles/style.scss';
 
 const SimonGame = (props) => {
   return (

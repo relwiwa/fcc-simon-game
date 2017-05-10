@@ -1,9 +1,10 @@
-@import 'foundation-custom';
 
 /* Colors */
 
 $borderColor:							#333;
+$backgroundColor:					#333;
 $centerColor:							white;
+
 $topLeftColor:						seagreen;
 $topLeftActiveColor:			aquamarine;
 $topRightColor:						firebrick;
@@ -12,6 +13,11 @@ $bottomLeftColor:					gold;
 $bottomLeftActiveColor:		lightyellow;
 $bottomRightColor:				dodgerblue;
 $bottomRightActiveColor:	paleturquoise;
+
+$startButtonColor:				red;
+$strictModeIndicatorColor:red;
+$strictModeButtonColor:		yellow;
+$switchPaddleColor:				#1779ba;
 
 /* Mixins */
 
@@ -26,26 +32,26 @@ $bottomRightActiveColor:	paleturquoise;
 	#simon-#{$vertical}-#{$horizontal} {
 		@if $vertical == "top" {
 			padding-bottom: 2.5px;
-			@include breakpoint(medium) {
+			@media screen and (min-width: 25em) {
 				padding-bottom: 5px;
 			}
 		}
 		@else {
 			padding-top: 2.5px;
-			@include breakpoint(medium) {
+			@media screen and (min-width: 25em) {
 				padding-top: 5px;
-			}
+			}			
 		}
 
 		@if $horizontal == "left" {
 			padding-right: 2.5px;
-			@include breakpoint(medium) {
+			@media screen and (min-width: 25em) {
 				padding-right: 5px;
 			}
 		}
 		@else {
 			padding-left: 2.5px;
-			@include breakpoint(medium) {
+			@media screen and (min-width: 25em) {
 				padding-left: 5px;
 			}
 		}
@@ -96,10 +102,10 @@ $bottomRightActiveColor:	paleturquoise;
 	background:$borderColor;
 	border-radius:100%;
 	z-index:0;
-	@include breakpoint(medium) {
+	@media screen and (min-width: 25em) and (max-width: 34.313em) {
 		border:15px solid $borderColor;
 	}
-	@include breakpoint(large) {
+	@media screen and (min-width: 34.375em) {
 		border:20px solid $borderColor;		
 	}
 }
@@ -124,18 +130,26 @@ $bottomRightActiveColor:	paleturquoise;
 	border-radius:100%;
 	top:15%;
 	left:20.6%;
-	@include breakpoint(medium) {
+	@media screen and (min-width: 25em) and (max-width: 34.313em) {
+		top:15%;
+		left:20.6%;
+	}
+	@media screen and (min-width: 34.375em) and (max-width: 39.938em) {
+		top:15%;
+		left:20.6%;
+	}
+	@media screen and (min-width: 40em) and (max-width: 63.938em) {
 		top:20%;
 		left:25%;
 	}
-	@include breakpoint(large) {
+	@media screen and (min-width: 64em) {
 		top:25%;
 		left:20.6%;
 	}
 }
 
 .simon-controls  > .row {
-	background:black;
+	background:$backgroundColor;
 	border-radius:100%;
 }
 
@@ -144,7 +158,7 @@ $bottomRightActiveColor:	paleturquoise;
 	font-weight:bold;
 	text-transform:uppercase;
 	margin-top:0.3rem;
-	@include breakpoint(medium) {
+	@media screen and (min-width: 25em) {
 		font-size:0.6rem;
 	}
 }
@@ -153,7 +167,7 @@ $bottomRightActiveColor:	paleturquoise;
   border-radius:100%;
   padding:0;
 	border:5px solid $borderColor;
-	@include breakpoint(medium) {
+	@media screen and (min-width: 25em) {
 	  border:10px solid $borderColor;
 	}
 }
@@ -181,7 +195,7 @@ $bottomRightActiveColor:	paleturquoise;
 	h3 {
 		font-size:1.9rem;
 		font-weight:bold;
-		@include breakpoint(large) {
+		@media screen and (min-width: 34.375em) {
 			font-size:2.4rem;
 		}
 	}
@@ -192,7 +206,7 @@ $bottomRightActiveColor:	paleturquoise;
   margin-top:30%;
   width:100%;
 	line-height:0;
-	@include breakpoint(large) {
+	@media screen and (min-width: 34.375em) {
 		margin-top:35%;
 	}
 	button {
@@ -203,7 +217,7 @@ $bottomRightActiveColor:	paleturquoise;
 		border:4px solid $borderColor;
 		box-sizing:content-box;
 		outline:none;
-		@include breakpoint(medium) {
+		@media screen and (min-width: 25em) {
 			width:2rem;
 			padding-bottom:2rem;
 		}
@@ -220,10 +234,10 @@ $bottomRightActiveColor:	paleturquoise;
 			padding:0.2rem 0;
 			width:100%;
 			height:100%;
-			background:black;
+			background:$backgroundColor;
 			color:white;
 			font-size:1.5rem;
-			@include breakpoint(medium) {
+			@media screen and (min-width: 25em) {
 				font-size:2rem;
 				padding:0.2rem;
 			}
@@ -241,7 +255,7 @@ $bottomRightActiveColor:	paleturquoise;
 
 
 .re-start-button {
-	background:red;
+	background:$startButtonColor;
 }
 
 .strict-mode-indicator {
@@ -256,12 +270,12 @@ $bottomRightActiveColor:	paleturquoise;
 		background:$borderColor;
 	}
 	span.strict-mode-on {
-		background:red;
+		background:$strictModeIndicatorColor;
 	}
 }
 
 .strict-mode-toggle {
-	background:yellow;
+	background:$strictModeButtonColor;
 }
 
 .simon-controls-bottom {
@@ -270,4 +284,25 @@ $bottomRightActiveColor:	paleturquoise;
 	width:50%;
 	margin-left:25%;
 	margin-right:25%;
+}
+
+.simon-controls-bottom input:checked ~ .switch-paddle {
+	background:$backgroundColor;
+}
+
+.simon-controls-bottom .switch-paddle:after {
+	border-radius:0.1rem;
+	background:$switchPaddleColor;
+}
+
+.simon-controls-bottom .switch-paddle {
+	background:$backgroundColor;
+	border-radius:0.1rem;
+}
+
+.simon-controls-bottom .switch-active {
+	background:$backgroundColor;
+}
+.simon-controls-bottom .switch-inactive {
+	background:$backgroundColor;
 }
