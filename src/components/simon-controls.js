@@ -70,7 +70,7 @@ const SimonControls = (props) => {
             <div className="simon-controls-bottom">
               <div className="switch tiny">
                 <input className="switch-input" checked={isTurnedOn} id="exampleSwitch" type="checkbox" name="exampleSwitch" />
-                <label className="switch-paddle" for="exampleSwitch" onClick={onToggleTurnedOn}>
+                <label className="switch-paddle" htmlFor="exampleSwitch" onClick={onToggleTurnedOn}>
                   <span className="show-for-sr">Turn Simon Game on or off</span>
                   <span className="switch-active" aria-hidden="true">On</span>
                   <span className="switch-inactive" aria-hidden="true">Off</span>
