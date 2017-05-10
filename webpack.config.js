@@ -16,10 +16,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[chunkhash].js',
-    publicPath: '/'
-  },
-  devServer: {
-    historyApiFallback: true
+    publicPath: './'
   },
   module: {
     rules: [
@@ -57,11 +54,6 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: './index.html'
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
     })
   ]
 };
