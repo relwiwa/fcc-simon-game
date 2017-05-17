@@ -111,7 +111,14 @@ class SimonBoard extends Component {
     let sequence = [];
     const { fields, numberOfFields, sequenceLength } = simonConfig;
     for (let i = 0; i < sequenceLength; i++) {
-      sequence.push(fields[Math.floor(Math.random() * fields.length)]);
+      let sequenceElement = fields[Math.floor(Math.random() * fields.length)];
+      // prevent same element one after another 
+      if (sequence.length > 1) {
+        while (sequence[i - 1] === sequenceElement) {
+          sequenceElement = fields[Math.floor(Math.random() * fields.length)];
+        }
+      }
+      sequence.push(sequenceElement);
     }
     return sequence;
   }
