@@ -14,9 +14,9 @@ const SimonControls = (props) => {
   };
 
   return (
-    <div className="simon-controls column small-7 medium-6 large-5 large-offset-1 text-center">
-      <div className="row">
-        <div className="simon-controls-wrapper-1 column small-12">
+    <div className="simon-controls cell small-7 medium-6 large-5 large-offset-1 text-center">
+      <div className="grid-x">
+        <div className="simon-controls-wrapper-1 cell">
           <div className="simon-controls-wrapper-2">
 
             <div className="simon-controls-top">
@@ -25,14 +25,14 @@ const SimonControls = (props) => {
 
             <div className="simon-controls-middle">
 
-              <div className="simon-controls-middle-1 row collapse">
-                <div className="strict-mode-indicator column small-offset-9 small-2 text-center">
+              <div className="simon-controls-middle-1 grid-x">
+                <div className="strict-mode-indicator cell small-offset-9 small-2 text-center">
                   <span className={strictMode ? 'strict-mode-on' : ''}></span>
                 </div>
               </div>
 
-              <div className="simon-controls-middle-2 row collapse">
-                <div className="column small-4">
+              <div className="simon-controls-middle-2 grid-x">
+                <div className="cell small-4">
                   {/* was not able to position span in accordance with the other buttons in
                       this row without using button :-( */}
                   <button className="step-counter-button">
@@ -40,27 +40,27 @@ const SimonControls = (props) => {
                       {isTurnedOn ? renderCurrentStep() : '--'}</span>
                   </button>
                 </div>
-                <div className="column small-4">
+                <div className="cell small-4">
                   <button
                     className="re-start-button"
                     onClick={isTurnedOn ? onStartOrRestart : null}
                   ></button>
                 </div>
-                <div className="column small-4">
+                <div className="cell small-4">
                   <button
                     className="strict-mode-toggle"
                     onClick={isTurnedOn ? onToggleStrictMode : null}></button>
                 </div>
               </div>
 
-              <div className="simon-controls-middle-3 row collapse">
-                <div className="column small-4">
+              <div className="simon-controls-middle-3 grid-x">
+                <div className="cell small-4">
                   <div className="simon-controls-text">Count</div>
                 </div>
-                <div className="column small-4">
+                <div className="cell small-4">
                   <div className="simon-controls-text">Start</div>
                 </div>
-                <div className="column small-4">
+                <div className="cell small-4">
                   <div className="simon-controls-text">Strict</div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const SimonField = (props) => {
   return (
     <div
       id={field}
-      className={'simon-field column small-6'}
+      className={'simon-field cell small-6'}
     >
       <div
         className={isCurrentField ? 'simon-field-current' : ''}

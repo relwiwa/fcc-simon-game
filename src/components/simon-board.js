@@ -228,7 +228,7 @@ class SimonBoard extends Component {
     const { currentField, currentSprite, currentStep, currentTurn, gameStatus, isTurnedOn, sequence, strictMode } = this.state;
 
     return (
-      <div className="simon-board row text-center">
+      <div className="simon-board grid-x">
         <SimonFields
           currentField={currentField}
           currentTurn={currentTurn}

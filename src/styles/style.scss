@@ -148,7 +148,7 @@ $switchPaddleColor:				#1779ba;
 	}
 }
 
-.simon-controls  > .row {
+.simon-controls  > .grid-x {
 	background:$backgroundColor;
 	border-radius:100%;
 }
@@ -178,7 +178,6 @@ $switchPaddleColor:				#1779ba;
 	background:$centerColor;
 	border-radius:100%;
 	text-align:center;
-
 }
 
 .simon-controls-top, .simon-controls-middle, .simon-controls-bottom {

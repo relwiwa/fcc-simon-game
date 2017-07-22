@@ -16,12 +16,12 @@ const SimonFields = (props) => {
   };
 
   return (
-    <div className="simon-fields column small-10 small-offset-1 text-center">
-      <div className="row">
+    <div className="simon-fields cell small-10 small-offset-1 text-center">
+      <div className="grid-x">
         {renderField('simon-top-left')}
         {renderField('simon-top-right')}
       </div>
-      <div className="row">
+      <div className="grid-x">
         {renderField('simon-bottom-left')}
         {renderField('simon-bottom-right')}
       </div>
