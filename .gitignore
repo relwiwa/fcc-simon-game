@@ -1,7 +1,0 @@
-node_modules
-build
-npm-debug.log*
-src/audio/simon-sprite-old.mp3
-src/audio/simon-sprite_data
-src/audio/simon-sprite.aup
-
