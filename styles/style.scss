@@ -1,4 +1,4 @@
-
+@import '../../../styles/color-scheme.scss';
 /* Colors */
 
 $borderColor:							#333;
@@ -17,7 +17,7 @@ $bottomRightActiveColor:	paleturquoise;
 $startButtonColor:				red;
 $strictModeIndicatorColor:red;
 $strictModeButtonColor:		yellow;
-$switchPaddleColor:				#1779ba;
+$switchPaddleColor:				$primaryColorDark;
 
 /* Mixins */
 
